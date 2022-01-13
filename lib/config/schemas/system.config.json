@@ -8,24 +8,16 @@
         "redis": {
           "type": "object",
           "properties": {
-            "emulate": {
-              "type": "boolean",
-              "default": false
-            },
             "namespace": {
               "type": "string",
               "default": "EG"
             }
           },
           "required": [
-            "emulate",
             "namespace"
           ]
         }
-      },
-      "required": [
-        "redis"
-      ]
+      }
     },
     "crypto": {
       "type": "object",
@@ -126,7 +118,6 @@
     }
   },
   "required": [
-    "db",
     "crypto",
     "session",
     "accessTokens",

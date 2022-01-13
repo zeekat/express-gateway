@@ -1,7 +1,6 @@
 # Core
 db:
   redis:
-    emulate: true
     namespace: EG
 
 #plugins:

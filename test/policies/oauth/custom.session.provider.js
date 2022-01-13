@@ -9,9 +9,6 @@ describe('Functional Tests oAuth2.0 Policy', () => {
 
   before('setup', () => {
     config.systemConfig = {
-      db: {
-        redis: { emulate: true }
-      },
       session: {
         storeProvider: '../../../test/common/session-provider',
         storeOptions: { test: 45 },
