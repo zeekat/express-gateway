@@ -85,7 +85,6 @@
     "uuid62": "1.0.1",
     "vhost": "3.0.2",
     "winston": "3.2.1",
-    "yargs": "^14.0.0",
     "yawn-yaml": "1.4.0"
   },
   "devDependencies": {
@@ -111,8 +110,5 @@
     "supertest": "^4.0.2",
     "supertest-session": "^4.0.0",
     "tmp": "^0.1.0"
-  },
-  "yargs": {
-    "boolean-negation": false
   }
 }
