@@ -58,25 +58,32 @@ module.exports.startGatewayInstance = function ({ dirInfo, gatewayConfig, backen
 
         gatewayProcess.on('error', reject);
 
-        gatewayProcess.stdout.once('data', () => {
-          request
-            .get(`http://localhost:${gatewayPort}/not-found`)
-            .ok(res => true)
-            .end((err, res) => {
-              if (err) {
-                gatewayProcess.kill();
-                reject(err);
-              }
-              resolve({
-                gatewayProcess,
-                gatewayPort,
-                adminPort,
-                backendPorts,
-                dirInfo,
-                backendServers: backendServers.map(bs => bs.app)
+        let started = false;
+        const listener = (chunk) => {
+          if (!started && chunk.toString().match(/server listening/)) {
+            started = true;
+            gatewayProcess.stdout.off('data', listener);
+
+            request
+              .get(`http://localhost:${gatewayPort}/not-found`)
+              .ok(res => true)
+              .end((err, res) => {
+                if (err) {
+                  gatewayProcess.kill();
+                  reject(err);
+                }
+                resolve({
+                  gatewayProcess,
+                  gatewayPort,
+                  adminPort,
+                  backendPorts,
+                  dirInfo,
+                  backendServers: backendServers.map(bs => bs.app)
+                });
               });
-            });
-        });
+          }
+        };
+        gatewayProcess.stdout.on('data', listener);
       });
     });
 };

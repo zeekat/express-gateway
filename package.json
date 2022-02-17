@@ -84,7 +84,6 @@
     "uuid": "^3.3.3",
     "uuid62": "1.0.1",
     "vhost": "3.0.2",
-    "winston": "3.2.1",
     "yawn-yaml": "1.4.0"
   },
   "devDependencies": {
