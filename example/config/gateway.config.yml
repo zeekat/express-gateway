@@ -1,0 +1,23 @@
+http:
+  port: 8080
+
+apiEndpoints:
+  api:
+    paths:
+       - '/anything'
+
+serviceEndpoints:
+  httpbin:
+    url: https://httpbin.org/
+
+policies:
+  - proxy
+
+pipelines:
+  api:
+    apiEndpoints:
+      - api
+    policies:
+      - proxy:
+          action:
+            serviceEndpoint: httpbin
