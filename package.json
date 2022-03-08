@@ -1,9 +1,8 @@
 {
-  "name": "express-gateway",
-  "version": "1.16.10",
-  "description": "A microservices API gateway built on top of ExpressJS",
-  "homepage": "https://www.express-gateway.io",
-  "repository": "expressgateway/express-gateway",
+  "name": "express-gateway-lite",
+  "version": "0.0.0-lite-1.16.10",
+  "description": "Lightweight version of ExpressGateway",
+  "repository": "jomco/express-gateway-lite",
   "keywords": [
     "microservices",
     "apis",
@@ -23,7 +22,9 @@
     "Irfan Baqui <irfan.baqui@gmail.com>",
     "Kevin Swiber <kswiber@gmail.com>",
     "Al Tsang <agilecto@gmail.com>",
-    "Vincenzo Chianese <vincenz.chianese@icloud.com>"
+    "Vincenzo Chianese <vincenz.chianese@icloud.com>",
+    "Joost Diepenmaat <joost@jomco.nl>",
+    "Remco van 't Veer <remco@jomco.nl>"
   ],
   "license": "Apache-2.0",
   "main": "lib/index.js",

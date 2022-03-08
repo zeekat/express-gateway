@@ -2,6 +2,6 @@
   "name": "my-gateway",
   "main": "server.js",
   "dependencies": {
-    "express-gateway": "file:vendor/express-gateway"
+    "express-gateway": "file:vendor/express-gateway-lite"
   }
 }

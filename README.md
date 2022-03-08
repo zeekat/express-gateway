@@ -31,8 +31,9 @@ For documentation see:
 mkdir my-gateway
 cd my-gateway
 git init .
-git submodule add git@github.com:jomco/express-gateway-lite.git vendor/express-gateway
-cp -rv vendor/express-gateway/example/* .
+git submodule add \
+  git@github.com:jomco/express-gateway-lite.git \ vendor/express-gateway-lite
+cp -rv vendor/express-gateway-lite/example/* .
 npm install
 npm start
 ```
