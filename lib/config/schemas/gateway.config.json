@@ -104,27 +104,6 @@
         }
       }
     },
-    "admin": {
-      "allOf": [
-        {
-          "properties": {
-            "port": {
-              "type": "number",
-              "default": 9876
-            },
-            "host": {
-              "type": "string"
-            },
-            "hostname": {
-              "type": "string"
-            }
-          },
-          "required": [
-            "port"
-          ]
-        }
-      ]
-    },
     "apiEndpoints": {
       "type": [
         "object",
