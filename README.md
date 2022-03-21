@@ -14,9 +14,10 @@ Original blurp:
 Removed from original:
 
 - commandline interface
-- admin API
+- admin API (configuration file reload still works)
 - proxy-agent support
-- Redis emulation
+- Redis emulation (Redis is a runtime dependency now)
+- colorful logging
 
 For documentation see:
 
