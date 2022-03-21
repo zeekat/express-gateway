@@ -78,7 +78,7 @@
     "passport-jwt": "^4.0.0",
     "passport-local": "1.0.0",
     "passport-oauth2-client-password": "0.1.2",
-    "rate-limit-redis": "^1.7.0",
+    "rate-limit-redis": "^2.1.0",
     "semver": "^6.3.0",
     "uuid": "^3.4.0",
     "uuid62": "1.0.1",
