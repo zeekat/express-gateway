@@ -60,7 +60,6 @@
     "express": "^4.17.3",
     "express-rate-limit": "^2.14.2",
     "express-session": "^1.17.2",
-    "find-up": "^3.0.0",
     "form-urlencoded": "^4.5.1",
     "http-proxy": "^1.18.0",
     "ioredis": "^4.28.5",
