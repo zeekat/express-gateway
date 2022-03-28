@@ -1,22 +1,18 @@
-name: test
+name: Check deps
 
 on:
-  - push
+  schedule:
+    - cron: '12 * * * *'
 
 jobs:
-  build:
+  deps:
     runs-on: ubuntu-latest
 
     steps:
-
     - uses: actions/setup-node@v1
       with:
         node-version: 14
 
-    - uses: supercharge/redis-github-action@1.4.0
-      with:
-        redis-version: 4
-
     - uses: actions/checkout@v2
     - run: npm ci
-    - run: npm test
+    - run: npm audit
