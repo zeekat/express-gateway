@@ -1,1 +1,1 @@
-require('express-gateway')().load('config').run()
+require('express-gateway-lite')().load('config').run()
