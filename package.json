@@ -55,7 +55,7 @@
     "bcryptjs": "^2.4.3",
     "connect-ensure-login": "0.1.1",
     "cors": "^2.8.5",
-    "ejs": "^2.7.4",
+    "ejs": "^3.1.7",
     "express": "^4.17.3",
     "express-rate-limit": "^2.14.2",
     "express-session": "^1.17.2",
