@@ -13,7 +13,6 @@ policies:
   - expression
   - key-auth
   - log
-  - oauth2
   - proxy
   - rate-limit
 pipelines:

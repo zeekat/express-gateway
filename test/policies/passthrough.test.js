@@ -37,7 +37,7 @@ describe('Functional Tests @auth Policies @passthrough', () => {
           scopes: ['unauthorizedScope'] // #434 should accept array
         }
       },
-      policies: ['key-auth', 'proxy', 'basic-auth', 'oauth2'],
+      policies: ['key-auth', 'proxy', 'basic-auth'],
       pipelines: {
         pipeline2: {
           apiEndpoints: ['unauthorizedEndpoint'],
@@ -50,13 +50,6 @@ describe('Functional Tests @auth Policies @passthrough', () => {
           },
           {
             'basic-auth': [{
-              action: {
-                passThrough: true
-              }
-            }]
-          },
-          {
-            oauth2: [{
               action: {
                 passThrough: true
               }
