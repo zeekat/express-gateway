@@ -1,5 +1,3 @@
-const path = require('path');
-const fs = require('fs');
 const request = require('supertest');
 const should = require('should');
 const sinon = require('sinon');
@@ -11,28 +9,15 @@ const { findOpenPortNumbers } = require('../../common/server-helper');
 
 const originalGatewayConfig = config.gatewayConfig;
 
-const serverKeyFile = path.join(__dirname, '../../fixtures/certs/server', 'server.key');
-const serverCertFile = path.join(__dirname, '../../fixtures/certs/server', 'server.crt');
-const invalidClientCertFile = path.join(__dirname, '../../fixtures', 'agent1-cert.pem');
-const clientKeyFile = path.join(__dirname, '../../fixtures/certs/client', 'client.key');
-const clientCertFile = path.join(__dirname, '../../fixtures/certs/client', 'client.crt');
-const chainFile = path.join(__dirname, '../../fixtures/certs/chain', 'chain.pem');
-
 let backendServerPort;
 
 describe('@proxy policy', () => {
-  const defaultProxyOptions = {
-    target: {
-      keyFile: clientKeyFile,
-      certFile: clientCertFile,
-      caFile: chainFile
-    }
-  };
+  const defaultProxyOptions = {};
   let app, backendServer;
 
   before('start HTTP server', (done) => {
     findOpenPortNumbers(1).then((ports) => {
-      const https = require('https');
+      const http = require('http');
       const express = require('express');
       const expressApp = express();
 
@@ -50,13 +35,7 @@ describe('@proxy policy', () => {
         res.status(200).json(Object.assign({ url: req.url }, req.body));
       });
 
-      backendServer = https.createServer({
-        key: fs.readFileSync(serverKeyFile),
-        cert: fs.readFileSync(serverCertFile),
-        ca: fs.readFileSync(chainFile),
-        requestCert: true,
-        rejectUnauthorized: true
-      }, expressApp);
+      backendServer = http.createServer({}, expressApp);
 
       backendServer.listen(backendServerPort, done);
     });
@@ -74,16 +53,6 @@ describe('@proxy policy', () => {
       const serviceOptions = { target: { keyFile: '/non/existent/file.key' } };
 
       return should(setupGateway(serviceOptions)).rejectedWith(/no such file or directory/);
-    });
-
-    describe('when incorrect proxy options are provided', () => {
-      before(() => {
-        return setupGateway({ target: { certFile: invalidClientCertFile } }).then(apps => {
-          app = apps.app;
-        });
-      });
-
-      it('responds with a bad gateway error', () => expectResponse(app, 502, /text\/html/));
     });
 
     describe('When proxy options are specified on the policy action', () => {
@@ -191,7 +160,7 @@ describe('@proxy policy', () => {
             },
             serviceEndpoints: {
               backend: {
-                url: `https://localhost:${backendServerPort}`
+                url: `http://localhost:${backendServerPort}`
               }
             },
             policies: ['proxy', 'change-stream'],
@@ -235,7 +204,7 @@ describe('@proxy policy', () => {
             },
             serviceEndpoints: {
               backend: {
-                url: `https://localhost:${backendServerPort}`
+                url: `http://localhost:${backendServerPort}`
               }
             },
             policies: ['proxy'],
@@ -324,7 +293,7 @@ const setupGateway = (proxyOptions = {}, serviceProxyOptions = {}) => {
     },
     serviceEndpoints: {
       backend: {
-        url: `https://localhost:${backendServerPort}`,
+        url: `http://localhost:${backendServerPort}`,
         proxyOptions: serviceProxyOptions
       }
     },
