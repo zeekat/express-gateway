@@ -97,7 +97,7 @@
     "should": "^13.2.3",
     "sinon": "^7.5.0",
     "superagent": "^5.3.1",
-    "supertest": "^4.0.2",
+    "supertest": "^6.3.3",
     "supertest-session": "^4.1.0",
     "tmp": "^0.1.0"
   }
