@@ -62,7 +62,7 @@
     "js-yaml": "^3.14.1",
     "json-schema-merge-allof": "^0.6.0",
     "json-schema-ref-parser": "^7.1.4",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "lodash.flatmap": "^4.5.0",
     "minimatch": "^3.1.2",
     "parent-require": "^1.0.0",
