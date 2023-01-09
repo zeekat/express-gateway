@@ -52,7 +52,6 @@
         "tokenType": {
           "type": "string",
           "enum": [
-            "jwt",
             "opaque"
           ],
           "default": "opaque"

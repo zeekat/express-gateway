@@ -305,12 +305,12 @@ describe('User service tests', () => {
       before(() =>
         Promise.all([
           credentialService.insertScopes(['someScope']),
-          credentialService.insertCredential(user.id, 'jwt'),
-          credentialService.insertCredential(user.id, 'jwt')]
-        ).then(([scope, jwt1, jwt2]) =>
-          Promise.all([jwt1, jwt2].map(cred => {
+          credentialService.insertCredential(user.id, 'key-auth'),
+          credentialService.insertCredential(user.id, 'key-auth')]
+        ).then(([scope, ka1, ka2]) =>
+          Promise.all([ka1, ka2].map(cred => {
             credentials.push(cred);
-            return credentialService.addScopesToCredential(cred.id, 'jwt', ['someScope']);
+            return credentialService.addScopesToCredential(cred.id, 'key-auth', ['someScope']);
           }))
         ));
 
@@ -319,7 +319,7 @@ describe('User service tests', () => {
       });
 
       it('should remove the credentials', () => {
-        return should(credentialService.getCredential(credentials[0].id, 'jwt')).resolvedWith(null);
+        return should(credentialService.getCredential(credentials[0].id, 'key-auth')).resolvedWith(null);
       });
     });
   });

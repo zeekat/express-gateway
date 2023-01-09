@@ -48,7 +48,7 @@ describe('Credential tests', () => {
   });
 
   describe('support for multiple credentials', () => {
-    ['key-auth', 'jwt'].forEach(type => {
+    ['key-auth'].forEach(type => {
       it(type, () => {
         return Promise.all([
           insertCredential(type),
@@ -65,8 +65,7 @@ describe('Credential tests', () => {
   const tests = [
     { type: 'oauth2', passwordKey: 'secret' },
     { type: 'basic-auth', passwordKey: 'password' },
-    { type: 'key-auth' },
-    { type: 'jwt' }
+    { type: 'key-auth' }
   ];
 
   tests.forEach(({ type, passwordKey }) => {
