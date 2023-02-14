@@ -3,6 +3,8 @@ name: Check deps
 on:
   schedule:
     - cron: '0 0 * * 1'
+  push:
+  pull_request:
 
 jobs:
   deps:
