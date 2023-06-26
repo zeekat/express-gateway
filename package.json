@@ -65,8 +65,7 @@
     "semver": "^6.3.0",
     "uuid": "^3.4.0",
     "uuid62": "1.0.1",
-    "vhost": "3.0.2",
-    "yawn-yaml": "1.4.0"
+    "vhost": "3.0.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
