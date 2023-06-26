@@ -62,7 +62,7 @@
     "passport": "^0.6.0",
     "passport-http": "0.3.0",
     "rate-limit-redis": "^2.1.0",
-    "semver": "^6.3.0",
+    "semver": "^7.5.3",
     "uuid": "^3.4.0",
     "uuid62": "1.0.1",
     "vhost": "3.0.2"
