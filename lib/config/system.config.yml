@@ -3,6 +3,8 @@ db:
     host: localhost
     port: 6379
     namespace: EG
+    # username: fred
+    # password: wilma
 
 cli:
   url: http://localhost:9876
