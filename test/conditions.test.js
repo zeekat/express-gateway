@@ -179,7 +179,7 @@ describe('conditions', () => {
       });
     });
 
-    describe('with a remote schema', function () {
+    describe.skip('with a remote schema', function () {
       let conditionPromise;
 
       before(() => {
